@@ -1,7 +1,7 @@
 name: hold_detector
 description: A Simple Widget which detects the Holding Gesture.
 version: 0.0.1
-homepage: https://github.com/AyushChothe
+homepage: https://github.com/AyushChothe/hold_detector
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
