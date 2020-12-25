@@ -1,14 +1,57 @@
 # hold_detector
 
-A new Flutter package project.
+A Simple Widget Which Detects The Holding Gesture.
 
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+Just import the package and use it. :tw-1f61c:
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Usage
+
+The `onHold` parameter takes a function that is called periodically after every `duration`.
+
+The `duration` parameter is used as delay between calling two `onHold` functions.
+
+The `onTap` and `onDoubleTap` are extra functions that you can use if you need.
+
+##Example
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:hold_detector/hold_detector.dart';
+
+class Example extends StatefulWidget {
+  @override
+  _ExampleState createState() => _ExampleState();
+}
+
+class _ExampleState extends State<Example> {
+  int _counter = 0;
+
+  void _increment() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrement() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return HoldDetector(
+      child: ListTile(
+        title: Text("$_counter"),
+        subtitle: Text("Hold or Tap to Increment & Double Tap to Decrement."),
+      ),
+      duration: Duration(seconds: 1),
+      onHold: _increment,
+      onTap: _increment,
+      onDoubleTap: _decrement,
+    );
+  }
+}
+```

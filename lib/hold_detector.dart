@@ -37,3 +37,38 @@ class _HoldDetectorState extends State<HoldDetector> {
     );
   }
 }
+
+class Example extends StatefulWidget {
+  @override
+  _ExampleState createState() => _ExampleState();
+}
+
+class _ExampleState extends State<Example> {
+  int _counter = 0;
+
+  void _increment() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrement() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return HoldDetector(
+      child: ListTile(
+        title: Text("$_counter"),
+        subtitle: Text("Hold or Tap to Increment & Double Tap to Decrement."),
+      ),
+      duration: Duration(seconds: 1),
+      onHold: _increment,
+      onTap: _increment,
+      onDoubleTap: _decrement,
+    );
+  }
+}
